@@ -80,9 +80,25 @@
 </div>
 <div align="center" class="row">
 <div align="left" class="col-sm-12">
-<label class="radio-inline" <?php echo $tipCol; ?>><input type="radio" name="tipP" value="r1" <?php echo $tip1Ch; ?>>10%</label>
-<label class="radio-inline" <?php echo $tipCol; ?>><input type="radio" name="tipP" value="r2" <?php echo $tip2Ch; ?> >15%</label>
-<label class="radio-inline" <?php echo $tipCol; ?>><input type="radio" name="tipP" value="r3" <?php echo $tip3Ch; ?>>20%</label>
+<?php
+    for ($x = 1; $x <= 3; $x++) {
+        echo '<label class="radio-inline" ' . $tipCol . '><input type="radio" name="tipP" value="r' . $x . '" ';
+        switch ($x) {
+            case 1:
+                echo $tip1Ch;
+                break;
+            case 2:
+                echo $tip2Ch;
+                break;
+            case 3:
+                echo $tip3Ch;
+                break;
+            default:
+                break;
+        }
+        echo '>' . (5 * ($x + 1)) . '%</label>';
+    }
+    ?>
 </div>
 </div>
 <div align="center" class="row">
